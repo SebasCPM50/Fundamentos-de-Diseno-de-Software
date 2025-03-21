@@ -19,15 +19,12 @@ public class Producto {
         return codigo;
     }
 
-    public double calcularPrecioFinal() {
-        return precioVenta + (precioVenta * tipoProducto.getIva());
-    }
-
+   
     @Override
     public String toString() {
         return "Código: " + codigo + ", Descripción: " + descripcion +
-               ", Precio: " + precioVenta + ", IVA: " + tipoProducto.getIva() +
-               ", Precio Final: " + calcularPrecioFinal() +
+               ", Precio: " + precioVenta + ", IVA: " + (tipoProducto.getIva()*this.precioVenta) +
+               ", Precio Final: " +precioVenta + (tipoProducto.getIva()*this.precioVenta)+
                ", Cantidad: " + cantidad + ", Vencimiento: " + fechaVencimiento +
                ", Tipo: " + tipoProducto;
     }

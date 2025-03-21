@@ -1,14 +1,14 @@
 public class Tipo {
-    private boolean perecedero;
+    private boolean tipo;
     private double iva; 
 
-    public Tipo(boolean perecedero, double iva) {
-        this.perecedero = perecedero;
+    public Tipo(boolean tipo, double iva) {
+        this.tipo = tipo;
         this.iva = iva;
     }
 
-    public boolean esPerecedero() {
-        return perecedero;
+    public boolean isTipo() {
+        return tipo;
     }
 
     public double getIva() {
@@ -17,6 +17,13 @@ public class Tipo {
 
     @Override
     public String toString() {
-        return (perecedero ? "Perecedero" : "No Perecedero") + ", IVA: " + iva;
+
+        /*if(tipo)
+            return "Perecedro";
+        else
+            return "No perecedro";
+        */
+
+        return (tipo ? "Perecedero" : "No Perecedero");
     }
 }
