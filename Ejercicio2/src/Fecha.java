@@ -1,11 +1,10 @@
 import java.time.LocalDate;
 
 public class Fecha {
-
     private LocalDate fecha;
 
     public Fecha(int dia, int mes, int año) {
-        this.fecha = LocalDate.of(año, mes, dia); 
+        this.fecha = LocalDate.of(año, mes, dia);
     }
 
     public Fecha(LocalDate fecha) {
@@ -32,7 +31,8 @@ public class Fecha {
         this.fecha = LocalDate.of(año, mes, dia);
     }
 
-    public void imprimirFecha() {
-        System.out.println(this.fecha.toString());
+    @Override
+    public String toString() {
+        return this.fecha.toString();
     }
 }
