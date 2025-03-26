@@ -14,7 +14,12 @@ public class Tienda {
     public void agregarProducto(Producto producto) {
         productos.add(producto);
     }
-
+     /**
+     * es el método para buscar un producto en la tienda por su código
+     *
+     * @param codigo el código del producto que se busca
+     * @return el producto encontrado o null (no encontrado) si no existe
+     */
     public Producto buscarProducto(int codigo) {
         for (Producto p : productos) {
             if (p.getCodigo() == codigo) {
@@ -23,7 +28,9 @@ public class Tienda {
         }
         return null;
     }
-
+     /**
+     * es el método para dejar en una lista todos los productos disponibles en la tienda
+     */
     public void listarProductos() {
         for (Producto p : productos) {
             System.out.println(p);
