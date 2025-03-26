@@ -33,11 +33,11 @@ public class Tienda {
     public static void main(String[] args) {
         Tienda tienda = new Tienda();  //crear una instancia de la clase tienda objeto de la clase tienda
 
-        Tipo perecedero = new Tipo(true, 0.19);
-        Tipo noPerecedero = new Tipo(false, 0.10);
+        Tipo perecedero = new Tipo(true);
+        Tipo noPerecedero = new Tipo(false);
 
         Producto leche = new Producto(perecedero, 101, "Leche", 2.50, 10, new Fecha(10, 5, 2025));
-        Producto arroz = new Producto(noPerecedero, 102, "Arroz", 1.80, 20, new Fecha(1, 1, 2030));
+        Producto arroz = new Producto(noPerecedero, 102, "Arroz", 1.80, 20, new Fecha(23, 4, 2026));
 
         tienda.agregarProducto(leche);
         tienda.agregarProducto(arroz);
@@ -45,7 +45,7 @@ public class Tienda {
         System.out.println("Listado de Productos:");
         tienda.listarProductos();
 
-        System.out.println("\nConsulta por Código (102):");
+        System.out.println("\nConsulta por Código:");
         Producto encontrado = tienda.buscarProducto(102);
         tienda.agregarProducto(encontrado);
         if (encontrado != null) {

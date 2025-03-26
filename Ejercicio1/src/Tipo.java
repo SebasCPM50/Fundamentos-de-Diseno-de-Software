@@ -2,9 +2,9 @@ public class Tipo {
     private boolean tipo;
     private double iva; 
 
-    public Tipo(boolean tipo, double iva) {
+    public Tipo(boolean tipo) {
         this.tipo = tipo;
-        this.iva = iva;
+        this.iva = tipo ? 0.19 : 0.10;
     }
 
     public boolean isTipo() {

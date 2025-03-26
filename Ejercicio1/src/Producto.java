@@ -19,12 +19,11 @@ public class Producto {
         return codigo;
     }
 
-   
     @Override
     public String toString() {
         return "Código: " + codigo + ", Descripción: " + descripcion +
-               ", Precio: " + precioVenta + ", IVA: " + (tipoProducto.getIva()*this.precioVenta) +
-               ", Precio Final: " +precioVenta + (tipoProducto.getIva()*this.precioVenta)+
+               ", Precio: " + precioVenta + ", IVA: " + (tipoProducto.getIva() * this.precioVenta) +
+               ", Precio Final: " + (precioVenta + (tipoProducto.getIva() * precioVenta)) +
                ", Cantidad: " + cantidad + ", Vencimiento: " + fechaVencimiento +
                ", Tipo: " + tipoProducto;
     }
