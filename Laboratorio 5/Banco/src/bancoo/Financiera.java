@@ -53,31 +53,27 @@ public class Financiera {
         }
     }
 
-    // === MAIN PARA PRUEBA DE FUNCIONES ===
     public static void main(String[] args) {
         Financiera financiera = new Financiera();
 
-        // Crear titulares
+
         Titular t1 = new Titular(1, "Ana Torres", "ana@email.com");
         Titular t2 = new Titular(2, "Luis Pérez", "luis@email.com");
 
-        // Crear cuentas
         CuentaAhorro ahorro = new CuentaAhorro(1001, 2023, t1, 2000.0, "2025-01-01", 500.0);
         CuentaCorriente corriente = new CuentaCorriente(1002, 2022, t2, 1500.0, "2025-06-01", 300.0, "retiro");
         CuentaVivienda vivienda = new CuentaVivienda(1003, 2021, t1, 0.0, 100000.0, "VIS");
         TarjetaCredito credito = new TarjetaCredito(1004, 2024, t2, 1000.0, 4000.0, "2024-12-01", 200.0);
 
-        // Agregar cuentas
+
         financiera.crearCuenta(ahorro);
         financiera.crearCuenta(corriente);
         financiera.crearCuenta(vivienda);
         financiera.crearCuenta(credito);
 
-        // Operaciones
         financiera.depositar(1001, 500.0);
         financiera.retirar(1002, 200.0);
 
-        // Mostrar cuentas
         System.out.println("\n--- TODAS LAS CUENTAS ---");
         financiera.mostrarCuentas();
 
