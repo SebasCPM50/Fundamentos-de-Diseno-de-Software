@@ -1,0 +1,206 @@
+﻿\# Sistema de Consulta de Matrículas Vehiculares
+
+\## Descripción
+
+Sistema optimizado para la consulta de matrículas vehiculares en la ciudad de Bogotá que implementa el algoritmo \*\*Radix Sort\*\* para ordenamiento y \*\*Búsqueda Binaria\*\* para consultas eficientes. Este proyecto resuelve el problema de tiempos de respuesta lentos en el sistema web de consultas vehiculares.
+
+\## Características Implementadas
+
+\### 1. Radix Sort (LSD - Least Significant Digit)
+
+- \*\*Implementación pura de Radix Sort\*\* sin usar Counting Sort como algoritmo principal
+- Ordena placas alfabéticamente procesando carácter por carácter de derecha a izquierda
+- \*\*Mantiene la relación uno a uno\*\* entre placas y matrículas durante todo el proceso
+- Algoritmo estable que preserva el orden relativo de elementos iguales
+- Maneja placas de diferentes longitudes correctamente
+- Utiliza arrays estáticos unidimensionales como estructuras de datos
+
+\### 2. Búsqueda Binaria O(log n)
+
+- Implementación de búsqueda logarítmica sobre datos ordenados
+- Reemplaza la búsqueda lineal O(n) original por una solución O(log n)
+- Reducción drástica en el número de comparaciones necesarias
+- Ideal para conjuntos de datos grandes y ordenados
+
+\### 3. Funcionalidades del Sistema
+
+- Visualización de datos originales sin ordenar
+- Aplicación del algoritmo Radix Sort
+- Visualización de datos ordenados
+- Búsqueda eficiente de placas con resultado de matrícula
+- Pruebas adicionales de validación
+- Análisis de complejidad algorítmica
+
+\## Análisis de Complejidad
+
+\### Radix Sort
+
+\```
+
+Complejidad temporal: O(d × n)
+
+\```
+
+- \*\*d\*\*: Longitud máxima de las placas (6 caracteres)
+- \*\*n\*\*: Número total de placas
+- Para placas de 6 caracteres: O(6n) ≈ O(n)
+- \*\*Ventajas\*\*: Lineal para strings de longitud fija, más eficiente que algoritmos de comparación O(n log n)
+- \*\*Complejidad espacial\*\*: O(n) - requiere arrays auxiliares
+
+\### Búsqueda Binaria
+
+\```
+
+Complejidad temporal: O(log n)
+
+Complejidad espacial: O(1)
+
+\```
+
+- Para 7 elementos: ~3 comparaciones máximo
+- Para 1,000 elementos: ~10 comparaciones máximo
+- Para 1,000,000 elementos: ~20 comparaciones máximo
+
+\### Comparación de Eficiencia
+
+| Operación | Algoritmo Original | Algoritmo Optimizado | Mejora |
+
+\|-----------|-------------------|---------------------|---------|
+
+| Ordenamiento | No implementado | O(d × n) ≈ O(n) | Lineal |
+
+| Búsqueda | O(n) | O(log n) | Logarítmica |
+
+| Búsqueda en 1M registros | ~1,000,000 ops | ~20 ops | \*\*50,000x más rápido\*\* |
+
+\## Resultados
+
+\### Datos de Entrada (Sin ordenar)
+
+\```
+
+Placa       Matrícula
+
+\---------------------------
+
+JNT400      40010231
+
+QNA555      5055178
+
+AAA123      4891230
+
+CVY000      14503098
+
+QKA233      24353789
+
+MJO941      39941452
+
+BCM122      7841263
+
+\```
+
+\### Datos de Salida (Ordenados con Radix Sort)
+
+\```
+
+Placa       Matrícula
+
+\---------------------------
+
+AAA123      4891230
+
+BCM122      7841263
+
+CVY000      14503098
+
+JNT400      40010231
+
+MJO941      39941452
+
+QKA233      24353789
+
+QNA555      5055178
+
+\```
+
+\### Ejemplo de Búsqueda
+
+\```
+
+Entrada:  Placa JNT400
+
+Salida:   La Matrícula es: 40010231
+
+\```
+
+\### Pruebas Adicionales
+
+\```
+
+✓ Placa AAA123: Matrícula 4891230
+
+✓ Placa CVY000: Matrícula 14503098
+
+✗ Placa XYZ999: No encontrada
+
+\```
+
+\## Uso del Sistema
+
+\```python
+
+\# Datos de entrada
+
+placas = ["JNT400", "QNA555", "AAA123", "CVY000", "QKA233", "MJO941", "BCM122"]
+
+matriculas = [40010231, 5055178, 4891230, 14503098, 24353789, 39941452, 7841263]
+
+\# Ordenar con Radix Sort
+
+placas\_ordenadas, matriculas\_ordenadas = radix\_sort\_placas(placas, matriculas)
+
+\# Buscar con Búsqueda Binaria
+
+placa\_buscar = "JNT400"
+
+resultado = busqueda\_binaria(placas\_ordenadas, matriculas\_ordenadas, placa\_buscar)
+
+print(f"La Matrícula es: {resultado}")
+
+\```
+
+\## Requisitos Técnicos
+
+- \*\*Lenguaje\*\*: Python 3.x
+- \*\*Estructuras de datos\*\*: Arrays unidimensionales estáticos
+- \*\*Sin dependencias externas\*\*: Solo biblioteca estándar de Python
+
+\## Criterios de Evaluación Cumplidos
+
+1. \*\*Diseño e implementación de la solución\*\*: Código modular y bien documentado
+1. \*\*Estructuras de datos estáticas unidimensionales\*\*: Arrays de Python (listas)
+1. \*\*Radix Sort sin Counting Sort\*\*: Implementación pura de Radix Sort
+1. \*\*Eficiencia del módulo\*\*: Complejidad O(log n) en búsquedas, O(n) en ordenamiento
+
+\## Ventajas de la Solución
+
+1. \*\*Escalabilidad\*\*: Maneja grandes volúmenes de datos eficientemente
+1. \*\*Rendimiento\*\*: Reducción exponencial en tiempos de búsqueda
+1. \*\*Estabilidad\*\*: Radix Sort mantiene el orden relativo de elementos iguales
+1. \*\*Mantenibilidad\*\*: Código limpio y bien estructurado
+1. \*\*Precisión\*\*: Mantiene la relación uno a uno entre placas y matrículas
+
+\## Conceptos Clave
+
+- \*\*Radix Sort LSD\*\*: Ordena procesando dígitos/caracteres de derecha a izquierda
+- \*\*Búsqueda Binaria\*\*: Divide el espacio de búsqueda a la mitad en cada iteración
+- \*\*Complejidad Logarítmica\*\*: Crece muy lentamente incluso con grandes conjuntos de datos
+- \*\*Estabilidad\*\*: Algoritmo que preserva el orden relativo de elementos con claves iguales
+
+\## 🎓 Autor
+
+Sebastián Chaux Palencia, Marc Suarez Molina, Alejandro Poveda Sandoval, Juan Diego Merchán Castillo, Dylan David Torres Mancipe
+
+\---
+
+\*\*Nota\*\*: Este sistema optimiza significativamente el rendimiento de consultas vehiculares, reduciendo los tiempos de respuesta de O(n) a O(log n) mediante el uso de algoritmos eficientes de ordenamiento y búsqueda.
